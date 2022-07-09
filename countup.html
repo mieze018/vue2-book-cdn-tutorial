@@ -6,6 +6,20 @@
   <title>Vue.js sample</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    window.onload = () => {
+      new Vue({
+        el: "#app",
+        data: {
+          count: 0,
+        },
+        methods: {
+          countUp: function () { this.count++ },
+        },
+      });
+
+    }
+  </script>
 </head>
 
 <body>
@@ -14,17 +28,6 @@
     <p>{{count}}回</p>
     <button v-on:click="countUp">カウント</button>
   </div>
-  <script>
-    new Vue({
-      el: "#app",
-      data: {
-        count: 0,
-      },
-      methods: {
-        countUp: function () { this.count++ },
-      },
-    });
-  </script>
 </body>
 
 </html>
