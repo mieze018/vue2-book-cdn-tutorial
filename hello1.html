@@ -6,10 +6,27 @@
   <title>Vue.js sample</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <style>
+    .strike-through {
+      text-decoration: line-through;
+      color: lightgray;
+    }
+
+    .dark {
+      background-color: gray;
+    }
+
+  </style>
 </head>
 
 <body>
   <div id="app">
+
+    <h2>[v-bind]クラス名を指定する</h2>
+    <p class="strike-through">直接指定</p>
+    <p :class="myClass">v-bindで指定</p>
+    <p :class="[myClass,darkClass]">v-bindで複数のクラスを指定</p>
+    <p :class="myClass">v-bindで指定</p>
 
     <h2>[v-bind]インラインスタイルを指定する</h2>
     <p style="color: #e08000">文字色を直接指定</p>
@@ -69,6 +86,8 @@
   new Vue({
     el: "#app",
     data: {
+      myClass: "strike-through",
+      darkClass: "dark",
       myColor: "#E08000",
       myURL: "https://www.ymori.com",
       fileName: 'face1.png',
