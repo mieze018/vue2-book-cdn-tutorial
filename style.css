@@ -49,4 +49,6 @@ textarea {
 
 select {
   border: 2px solid darkcyan;
+  padding: 6px 12px;
+  border-radius: 6px;
 }
