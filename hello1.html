@@ -25,6 +25,19 @@
 <body>
   <div id="app">
 
+    <h2>[v-model]選択したラジオボタンを表示する</h2>
+    <label>
+      <input type="radio" value="red" v-model="picked" />
+      赤
+    </label><label>
+      <input type="radio" value="green" v-model="picked" />
+      緑
+    </label><label>
+      <input type="radio" value="blue" v-model="picked" />
+      青
+    </label>
+    <p>選択したのは、{{picked}}</p>
+
     <h2>[v-model]同意にチェックを入れたら送信ボタンが有効になる</h2>
     <label><input type="checkbox" v-model="myAgree" />同意します</label>
     <button :disabled='!myAgree'>送信</button>
@@ -130,6 +143,7 @@
   new Vue({
     el: "#app",
     data: {
+      picked: 'red',
       myAgree: false,
       myChecks: [],
       myCheck: false,
