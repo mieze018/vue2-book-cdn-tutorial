@@ -22,6 +22,11 @@
 <body>
   <div id="app">
 
+    <h2>[v-model]入力した文章と文字数を表示する</h2>
+    <textarea v-model="myText"></textarea>
+    <p>文章は、{{myText}}です</p>
+    <p>文字数は、{{myText.length}}です</p>
+
     <h2>[v-model]入力した文字列を表示する</h2>
     <input v-model="myName" placeholder="お名前" />
     <p>私は、{{myName}}です</p>
