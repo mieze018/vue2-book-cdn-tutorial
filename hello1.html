@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue.js sample</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+
+    <h2>オブジェクトデータの中身を確認する</h2>
+    {{ $data }}
+    <hr />
+    <li v-for="(item,key) in $data">{{key}}:{{item}}</li>
+
+    <h2>JSで用意したデータを表示する</h2>
+    <p>{{myTeaList[1].name}} ¥{{myTeaList[1].price}}</p>
+
+    <h2>オブジェクトデータを表示する</h2>
+    <p>{{myTea}}</p>
+    <p>{{myTea.name}}</p>
+
+    <h2>配列の値を表示する</h2>
+    <p>{{myArray}}</p>
+    <p>{{myArray[0]}}</p>
+
+    <h2>Javascriptの式を使って表示する</h2>
+    <p>{{myPrice*1.08}}</p>
+    <p>{{'こんにちは、'+myName+'さん'}}</p>
+    <p>{{myName.substr(0,1)}}</p>
+
+    <h2>いろいろな型のデータを表示する</h2>
+    <p>{{myNumber}}</p>
+    <p>{{myText}}</p>
+    <p>{{myBool}}</p>
+
+    <h2>データをHTMLで表示する例</h2>
+    <p v-html="myHtml"></p>
+
+    <h2>データをそのままv-text(ディレクティブ)で表示する</h2>
+    <p v-text="myText"></p>
+
+    <h2>データをそのままマスタッシュタグで表示する</h2>
+    <p>{{ myText }}</p>
+  </div>
+</body>
+
+<script>
+  const teaList = [
+    { name: "ダージリン", price: 600 },
+    { name: "アールグレイ", price: 500 },
+    { name: "セイロン", price: 500 },
+  ];
+  new Vue({
+    el: "#app",
+    data: {
+      myTeaList: teaList,
+      myTea: { name: 'ダージリン', price: 600 },
+      myArray: ['ダージリン', 'アールグレイ', 'セイロン'],
+      myPrice: "500",
+      myName: "桃太郎",
+      myNumber: "12345",
+      myText: "Hello",
+      myBool: true,
+      myHtml: "<h1>Hello</h1>",
+      myText: "Hello",
+    },
+  });
+</script>
+
+</html>
