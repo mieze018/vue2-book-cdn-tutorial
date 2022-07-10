@@ -22,6 +22,11 @@
 <body>
   <div id="app">
 
+    <h2>[v-model]入力した文字列を表示する</h2>
+    <input v-model="myName" placeholder="お名前" />
+    <p>私は、{{myName}}です</p>
+
+
     <h2>[v-bind]クラス名を分岐</h2>
     <p :class="{'strike-through':isOn}">データでクラスをon/off</p>
 
