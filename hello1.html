@@ -11,6 +11,11 @@
 <body>
   <div id="app">
 
+    <h2>オブジェクトデータの中身を確認する</h2>
+    {{ $data }}
+    <hr />
+    <li v-for="(item,key) in $data">{{key}}:{{item}}</li>
+
     <h2>JSで用意したデータを表示する</h2>
     <p>{{myTeaList[1].name}} ¥{{myTeaList[1].price}}</p>
 
