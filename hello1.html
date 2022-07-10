@@ -25,6 +25,12 @@
 <body>
   <div id="app">
 
+    <h2>[v-if]trueのときだけ表示する</h2>
+    <label>
+      <input type="checkbox" v-model="myVisible" />表示する
+    </label>
+    <p v-if="myVisible">{{myVisible}}</p>
+
     <h2>[v-on.keycode.keycode]キーコンビネーション(Shift+Enter)でアラートを表示する</h2>
     <input @keyup.enter.shift="showAlert" v-model="myText" />
 
@@ -207,6 +213,7 @@
   new Vue({
     el: "#app",
     data: {
+      myVisible: false,
       isClicked: false,
       count: 0,
       mySelectColors: [],
