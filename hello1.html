@@ -25,6 +25,9 @@
 <body>
   <div id="app">
 
+    <h2>[v-on.keycode.keycode]キーコンビネーション(Shift+Enter)でアラートを表示する</h2>
+    <input @keyup.enter.shift="showAlert" v-model="myText" />
+
     <h2>[v-on.keycode]エンターキーを押したらアラートを表示する</h2>
     <input @keyup.enter="showAlert" v-model="myText" />
 
