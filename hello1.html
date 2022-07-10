@@ -22,6 +22,13 @@
 <body>
   <div id="app">
 
+    <h2>[v-model]チェックボックスのON/OFFを調べる</h2>
+    <label>
+      <input type="checkbox" v-model="myCheck" />
+      チェックボックスは、{{myCheck}}です
+    </label>
+
+
     <h2>[v-model]入力した文章と文字数を表示する</h2>
     <textarea v-model="myText"></textarea>
     <p>文章は、{{myText}}です</p>
@@ -91,6 +98,10 @@
 </body>
 
 <script>
+
+  // ハイライトを実行
+  hljs.initHighlightingOnLoad();
+
   const teaList = [
     { name: "ダージリン", price: 600 },
     { name: "アールグレイ", price: 500 },
@@ -99,6 +110,7 @@
   new Vue({
     el: "#app",
     data: {
+      myCheck: false,
       myClass: "strike-through",
       darkClass: "dark",
       isOn: true,
