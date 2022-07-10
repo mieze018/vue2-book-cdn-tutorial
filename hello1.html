@@ -10,8 +10,14 @@
 
 <body>
   <div id="app">
+
+    <h2>いろいろな型のデータを表示する</h2>
+    <p>{{myNumber}}</p>
+    <p>{{myText}}</p>
+    <p>{{myBool}}</p>
+
     <h2>データをHTMLで表示する例</h2>
-    <p v-html="myText"></p>
+    <p v-html="myHtml"></p>
 
     <h2>データをそのままv-text(ディレクティブ)で表示する</h2>
     <p v-text="myText"></p>
@@ -25,7 +31,11 @@
   new Vue({
     el: "#app",
     data: {
-      myText: "<h1>Hello</h1>",
+      myNumber: "12345",
+      myText: "Hello",
+      myBool: true,
+      myHtml: "<h1>Hello</h1>",
+      myText: "Hello",
     },
   });
 </script>
