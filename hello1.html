@@ -11,6 +11,10 @@
 <body>
   <div id="app">
 
+    <h2>[v-bind]リンク先を指定する</h2>
+    <p><a href="https://www.ymori.com">リンクを直接指定</a></p>
+    <p><a v-bind:href="myURL">リンクをv-bindで指定</a></p>
+
     <h2>[v-bind]画像urlを指定する</h2>
     <p><img src='face1.png'>直接指定</img></p>
     <p><img v-bind:src='fileName'>v-bindで指定</img></p>
@@ -61,6 +65,7 @@
   new Vue({
     el: "#app",
     data: {
+      myURL: "https://www.ymori.com",
       fileName: 'face1.png',
       myTeaList: teaList,
       myTea: { name: 'ダージリン', price: 600 },
