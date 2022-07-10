@@ -11,6 +11,10 @@
 <body>
   <div id="app">
 
+    <h2>[v-bind]画像urlを指定する</h2>
+    <p><img src='face1.png'>直接指定</img></p>
+    <p><img v-bind:src='fileName'>v-bindで指定</img></p>
+
     <h2>オブジェクトデータの中身を確認する</h2>
     {{ $data }}
     <hr />
@@ -57,6 +61,7 @@
   new Vue({
     el: "#app",
     data: {
+      fileName: 'face1.png',
       myTeaList: teaList,
       myTea: { name: 'ダージリン', price: 600 },
       myArray: ['ダージリン', 'アールグレイ', 'セイロン'],
