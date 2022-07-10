@@ -24,6 +24,11 @@
 
 <body>
   <div id="app">
+
+    <h2>[v-model.lazy]全部書き終わってから（Enterキーを押すかフォーカスが外れたら）入力する</h2>
+    <input v-model.lazy="myText">
+    <p>入力後に表示:{{myText}}</p>
+
     <h2>[v-model]複数の選択を配列にする</h2>
     <select v-model="mySelectColors" multiple>
       <option selected disabled value="">Select a color</option>
