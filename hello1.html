@@ -25,6 +25,19 @@
 <body>
   <div id="app">
 
+    <h2>[v-model]複数のチェックボックスのONを配列にする</h2>
+    <label>
+      <input type="checkbox" value="red" v-model="myChecks" />
+      赤
+    </label><label>
+      <input type="checkbox" value="green" v-model="myChecks" />
+      緑
+    </label><label>
+      <input type="checkbox" value="blue" v-model="myChecks" />
+      青
+    </label>
+    <p>選択したのは、{{myChecks}}</p>
+
     <h2>[v-model]チェックボックスのON/OFFを調べる</h2>
     <label>
       <input type="checkbox" v-model="myCheck" />
@@ -113,6 +126,7 @@
   new Vue({
     el: "#app",
     data: {
+      myChecks: [],
       myCheck: false,
       myClass: "strike-through",
       darkClass: "dark",
