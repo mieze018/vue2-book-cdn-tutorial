@@ -25,6 +25,9 @@
 <body>
   <div id="app">
 
+    <h2>[v-on.keycode]エンターキーを押したらアラートを表示する</h2>
+    <input @keyup.enter="showAlert" v-model="myText" />
+
     <h2>[v-on]クリックしたら値を色々増やす</h2>
     <p>{{count}}</p>
     <button @click="countUp(3)">+ 3</button>
@@ -227,6 +230,7 @@
       myText: "Hello",
     },
     methods: {
+      showAlert: function () { alert('Enterキーを押しました') },
       countUp: function (value = 1) { this.count += value },
       clickOnce: function () { this.isClicked = true; initClickOnce() }
     }
