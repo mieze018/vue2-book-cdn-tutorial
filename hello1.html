@@ -25,6 +25,9 @@
 <body>
   <div id="app">
 
+    <h2>[v-if]クリックしたら消える「いいね！」ボタン</h2>
+    <button v-if="isShow" @click="handleNice">いいね！</button>
+
     <h2>[v-else]trueとfalseで表示を切り替える</h2>
     <label>
       <input type="checkbox" v-model="myVisible" />表示する
@@ -220,6 +223,7 @@
   new Vue({
     el: "#app",
     data: {
+      isShow: true,
       myVisible: false,
       isClicked: false,
       count: 0,
@@ -247,6 +251,7 @@
       myText: "Hello",
     },
     methods: {
+      handleNice: function () { this.isShow = false },
       showAlert: function () { alert('Enterキーを押しました') },
       countUp: function (value = 1) { this.count += value },
       clickOnce: function () { this.isClicked = true; initClickOnce() }
