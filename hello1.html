@@ -25,6 +25,10 @@
 <body>
   <div id="app">
 
+    <h2>[v-model]同意にチェックを入れたら送信ボタンが有効になる</h2>
+    <label><input type="checkbox" v-model="myAgree" />同意します</label>
+    <button :disabled='!myAgree'>送信</button>
+
     <h2>[v-model]複数のチェックボックスのONを配列にする</h2>
     <label>
       <input type="checkbox" value="red" v-model="myChecks" />
@@ -126,6 +130,7 @@
   new Vue({
     el: "#app",
     data: {
+      myAgree: false,
       myChecks: [],
       myCheck: false,
       myClass: "strike-through",

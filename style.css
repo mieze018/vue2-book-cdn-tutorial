@@ -30,7 +30,8 @@ button:active {
 }
 
 button:disabled {
-  opacity: 5;
+  opacity: .5;
+  background-color: darkgray;
   pointer-events: none;
 }
 
