@@ -25,6 +25,17 @@
 <body>
   <div id="app">
 
+    <h2>[v-model]画像の表示をラジオボタンで切り替える</h2>
+    <label>
+      <input type="radio" value="face1.png" v-model="fileName" />
+      face1
+    </label><label>
+      <input type="radio" value="face2.png" v-model="fileName" />
+      face2
+    </label>
+    <p>選択したのは、{{fileName}}</p>
+    <p><img :src='fileName' /></p>
+
     <h2>[v-model]選択したラジオボタンを表示する</h2>
     <label>
       <input type="radio" value="red" v-model="picked" />
