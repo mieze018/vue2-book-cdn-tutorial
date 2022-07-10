@@ -6,10 +6,42 @@
   <title>Vue.js sample</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <style>
+    .strike-through {
+      text-decoration: line-through;
+      color: lightgray;
+    }
+
+    .dark {
+      background-color: gray;
+    }
+
+  </style>
 </head>
 
 <body>
   <div id="app">
+
+    <h2>[v-bind]クラス名を分岐</h2>
+    <p :class="{'strike-through':isOn}">データでクラスをon/off</p>
+
+    <h2>[v-bind]クラス名を指定する</h2>
+    <p class="strike-through">直接指定</p>
+    <p :class="myClass">v-bindで指定</p>
+    <p :class="[myClass,darkClass]">v-bindで複数のクラスを指定</p>
+    <p :class="myClass">v-bindで指定</p>
+
+    <h2>[v-bind]インラインスタイルを指定する</h2>
+    <p style="color: #e08000">文字色を直接指定</p>
+    <p :style="{color:myColor}">文字色をv-bindで指定</p>
+
+    <h2>[v-bind]リンク先を指定する</h2>
+    <p><a href="https://www.ymori.com">リンクを直接指定</a></p>
+    <p><a v-bind:href="myURL">リンクをv-bindで指定</a></p>
+
+    <h2>[v-bind]画像urlを指定する</h2>
+    <p><img src='face1.png'>直接指定</img></p>
+    <p><img v-bind:src='fileName'>v-bindで指定</img></p>
 
     <h2>オブジェクトデータの中身を確認する</h2>
     {{ $data }}
@@ -57,6 +89,12 @@
   new Vue({
     el: "#app",
     data: {
+      myClass: "strike-through",
+      darkClass: "dark",
+      isOn: true,
+      myColor: "#E08000",
+      myURL: "https://www.ymori.com",
+      fileName: 'face1.png',
       myTeaList: teaList,
       myTea: { name: 'ダージリン', price: 600 },
       myArray: ['ダージリン', 'アールグレイ', 'セイロン'],
