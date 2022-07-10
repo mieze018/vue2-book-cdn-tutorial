@@ -11,6 +11,10 @@
 <body>
   <div id="app">
 
+    <h2>配列の値を表示する</h2>
+    <p>{{myArray}}</p>
+    <p>{{myArray[0]}}</p>
+
     <h2>Javascriptの式を使って表示する</h2>
     <p>{{myPrice*1.08}}</p>
     <p>{{'こんにちは、'+myName+'さん'}}</p>
@@ -36,6 +40,7 @@
   new Vue({
     el: "#app",
     data: {
+      myArray: ['ダージリン', 'アールグレイ', 'セイロン'],
       myPrice: "500",
       myName: "桃太郎",
       myNumber: "12345",
