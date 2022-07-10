@@ -11,6 +11,9 @@
 <body>
   <div id="app">
 
+    <h2>JSで用意したデータを表示する</h2>
+    <p>{{myTeaList[1].name}} ¥{{myTeaList[1].price}}</p>
+
     <h2>オブジェクトデータを表示する</h2>
     <p>{{myTea}}</p>
     <p>{{myTea.name}}</p>
@@ -41,9 +44,15 @@
 </body>
 
 <script>
+  const teaList = [
+    { name: "ダージリン", price: 600 },
+    { name: "アールグレイ", price: 500 },
+    { name: "セイロン", price: 500 },
+  ];
   new Vue({
     el: "#app",
     data: {
+      myTeaList: teaList,
       myTea: { name: 'ダージリン', price: 600 },
       myArray: ['ダージリン', 'アールグレイ', 'セイロン'],
       myPrice: "500",
