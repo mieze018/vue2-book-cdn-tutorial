@@ -25,6 +25,11 @@
 <body>
   <div id="app">
 
+    <h2>[v-model.number]入力を自動的に数値に変換する</h2>
+    <label><input v-model.number="myNumber">数値に変換</label>
+    <label><input v-model="myNumber" type="number">数値に変換しない（文字列扱い）</label>
+    <p>999を足して表示:{{999 + myNumber}}</p>
+
     <h2>[v-model.lazy]全部書き終わってから（Enterキーを押すかフォーカスが外れたら）入力する</h2>
     <input v-model.lazy="myText">
     <p>入力後に表示:{{myText}}</p>
