@@ -25,6 +25,19 @@
 <body>
   <div id="app">
 
+    <h2>[v-for]配列データをテーブルで表示する</h2>
+    <table>
+      <caption>注目されている言語ランキング</caption>
+      <thead>
+        <th v-for="header in langTableHeader">{{header}}</th>
+      </thead>
+      <tbody>
+        <tr v-for="line in langRanking">
+          <td v-for="item in line">{{item}}</td>
+        </tr>
+      </tbody>
+    </table>
+
     <h2>[v-for]配列データを番号付きリストで表示する</h2>
     <ul>
       <li v-for="(tea,i) in myTeaList">{{i+1}}.{{tea.name}} ¥{{tea.price}}</li>
@@ -244,6 +257,14 @@
   new Vue({
     el: "#app",
     data: {
+      langTableHeader: ["プログラミング言語", 2018, 2013, 2008, 2003, 1998],
+      langRanking: [
+        ['Java', 1, 2, 1, 1, 16],
+        ['C', 2, 1, 2, 2, 1],
+        ['C++', 3, 4, 3, 3, 2],
+        ['Python', 4, 7, 6, 11, 23],
+        ['JavaScript', 7, 10, 8, 7, 20]
+      ],
       isShow: true,
       myVisible: false,
       isClicked: false,
