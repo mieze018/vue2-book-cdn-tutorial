@@ -25,6 +25,11 @@
 <body>
   <div id="app">
 
+    <h2>[v-for]配列データを番号付きリストで表示する</h2>
+    <ul>
+      <li v-for="(tea,i) in myTeaList">{{i+1}}.{{tea.name}} ¥{{tea.price}}</li>
+    </ul>
+
     <h2>[v-for]インデックスをリスト表示する</h2>
     <ul>
       <li v-for="n in 10">{{n}}*5={{n*5}}</li>
