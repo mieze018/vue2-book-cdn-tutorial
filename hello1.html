@@ -25,6 +25,11 @@
 <body>
   <div id="app">
 
+    <h2>[v-for]配列データをリストで表示する</h2>
+    <ul>
+      <li v-for="item in myArray">{{item}}</li>
+    </ul>
+
     <h2>[v-if]クリックしたら消える「いいね！」ボタン</h2>
     <button v-if="isShow" @click="handleNice">いいね！</button>
 
