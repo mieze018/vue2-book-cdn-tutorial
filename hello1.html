@@ -25,6 +25,10 @@
 <body>
   <div id="app">
 
+    <h2>[v-on]クリックしたら1増やす</h2>
+    <p>{{count}}</p>
+    <button @click="countUp">+ 1</button>
+
     <h2>[v-model.trim]前後の空白を自動的にトリムする</h2>
     <label><input v-model.trim="myText">前後の空白をトリム</label>
     <label><input v-model="myText">前後の空白をトリムしない</label>
@@ -190,6 +194,7 @@
   new Vue({
     el: "#app",
     data: {
+      count: 0,
       mySelectColors: [],
       mySelectColor: '',
       picked: 'red',
@@ -213,6 +218,9 @@
       myHtml: "<h1>Hello</h1>",
       myText: "Hello",
     },
+    methods: {
+      countUp: function () { this.count++ }
+    }
   });
 </script>
 
