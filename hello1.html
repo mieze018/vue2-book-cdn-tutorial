@@ -11,6 +11,11 @@
 <body>
   <div id="app">
 
+    <h2>Javascriptの式を使って表示する</h2>
+    <p>{{myPrice*1.08}}</p>
+    <p>{{'こんにちは、'+myName+'さん'}}</p>
+    <p>{{myName.substr(0,1)}}</p>
+
     <h2>いろいろな型のデータを表示する</h2>
     <p>{{myNumber}}</p>
     <p>{{myText}}</p>
@@ -31,6 +36,8 @@
   new Vue({
     el: "#app",
     data: {
+      myPrice: "500",
+      myName: "桃太郎",
       myNumber: "12345",
       myText: "Hello",
       myBool: true,
