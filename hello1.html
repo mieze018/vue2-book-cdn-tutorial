@@ -25,6 +25,13 @@
 <body>
   <div id="app">
 
+    <h2>[v-else]trueとfalseで表示を切り替える</h2>
+    <label>
+      <input type="checkbox" v-model="myVisible" />表示する
+    </label>
+    <p v-if="myVisible">{{myVisible}}</p>
+    <p v-else>{{myVisible}}</p>
+
     <h2>[v-if]trueのときだけ表示する</h2>
     <label>
       <input type="checkbox" v-model="myVisible" />表示する
