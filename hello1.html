@@ -25,6 +25,11 @@
 <body>
   <div id="app">
 
+    <h2>[v-model.trim]前後の空白を自動的にトリムする</h2>
+    <label><input v-model.trim="myText">前後の空白をトリム</label>
+    <label><input v-model="myText">前後の空白をトリムしない</label>
+    <p>前後の空白をトリム:{{myText}}</p>
+
     <h2>[v-model.number]入力を自動的に数値に変換する</h2>
     <label><input v-model.number="myNumber">数値に変換</label>
     <label><input v-model="myNumber" type="number">数値に変換しない（文字列扱い）</label>
