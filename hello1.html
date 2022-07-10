@@ -6,6 +6,9 @@
   <title>Vue.js sample</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
   <style>
     .strike-through {
       text-decoration: line-through;
@@ -21,6 +24,100 @@
 
 <body>
   <div id="app">
+
+    <h2>[v-model.trim]前後の空白を自動的にトリムする</h2>
+    <label><input v-model.trim="myText">前後の空白をトリム</label>
+    <label><input v-model="myText">前後の空白をトリムしない</label>
+    <p>前後の空白をトリム:{{myText}}</p>
+
+    <h2>[v-model.number]入力を自動的に数値に変換する</h2>
+    <label><input v-model.number="myNumber">数値に変換</label>
+    <label><input v-model="myNumber" type="number">数値に変換しない（文字列扱い）</label>
+    <p>999を足して表示:{{999 + myNumber}}</p>
+
+    <h2>[v-model.lazy]全部書き終わってから（Enterキーを押すかフォーカスが外れたら）入力する</h2>
+    <input v-model.lazy="myText">
+    <p>入力後に表示:{{myText}}</p>
+
+    <h2>[v-model]複数の選択を配列にする</h2>
+    <select v-model="mySelectColors" multiple>
+      <option selected disabled value="">Select a color</option>
+      <option>red</option>
+      <option>green</option>
+      <option>blue</option>
+      <option>orange</option>
+      <option>brown</option>
+    </select>
+    <p>選択した色：{{mySelectColors}}</p>
+
+    <h2>[v-model]文字列が選択した色に変わる</h2>
+    <select v-model="mySelectColor">
+      <option selected disabled value="">Select a color</option>
+      <option>red</option>
+      <option>green</option>
+      <option>blue</option>
+      <option>orange</option>
+      <option>brown</option>
+    </select>
+    <p :style="{color:mySelectColor}">選択した色：{{mySelectColor}}</p>
+
+    <h2>[v-model]画像の表示をラジオボタンで切り替える</h2>
+    <label>
+      <input type="radio" value="face1.png" v-model="fileName" />
+      face1
+    </label><label>
+      <input type="radio" value="face2.png" v-model="fileName" />
+      face2
+    </label>
+    <p>選択したのは、{{fileName}}</p>
+    <p><img :src='fileName' /></p>
+
+    <h2>[v-model]選択したラジオボタンを表示する</h2>
+    <label>
+      <input type="radio" value="red" v-model="picked" />
+      赤
+    </label><label>
+      <input type="radio" value="green" v-model="picked" />
+      緑
+    </label><label>
+      <input type="radio" value="blue" v-model="picked" />
+      青
+    </label>
+    <p>選択したのは、{{picked}}</p>
+
+    <h2>[v-model]同意にチェックを入れたら送信ボタンが有効になる</h2>
+    <label><input type="checkbox" v-model="myAgree" />同意します</label>
+    <button :disabled='!myAgree'>送信</button>
+
+    <h2>[v-model]複数のチェックボックスのONを配列にする</h2>
+    <label>
+      <input type="checkbox" value="red" v-model="myChecks" />
+      赤
+    </label><label>
+      <input type="checkbox" value="green" v-model="myChecks" />
+      緑
+    </label><label>
+      <input type="checkbox" value="blue" v-model="myChecks" />
+      青
+    </label>
+    <p>選択したのは、{{myChecks}}</p>
+
+    <h2>[v-model]チェックボックスのON/OFFを調べる</h2>
+    <label>
+      <input type="checkbox" v-model="myCheck" />
+      チェックボックスは、{{myCheck}}です
+    </label>
+
+
+    <h2>[v-model]入力した文章と文字数を表示する</h2>
+    <textarea v-model="myText"></textarea>
+    <p>文章は、{{myText}}です</p>
+    <p>文字数は、{{myText.length}}です</p>
+
+    <h2>[v-model]入力した文字列を表示する</h2>
+    <input v-model="myName" placeholder="お名前" />
+    <p>私は、{{myName}}です</p>
+
 
     <h2>[v-bind]クラス名を分岐</h2>
     <p :class="{'strike-through':isOn}">データでクラスをon/off</p>
@@ -81,6 +178,10 @@
 </body>
 
 <script>
+
+  // ハイライトを実行
+  hljs.initHighlightingOnLoad();
+
   const teaList = [
     { name: "ダージリン", price: 600 },
     { name: "アールグレイ", price: 500 },
@@ -89,6 +190,12 @@
   new Vue({
     el: "#app",
     data: {
+      mySelectColors: [],
+      mySelectColor: '',
+      picked: 'red',
+      myAgree: false,
+      myChecks: [],
+      myCheck: false,
       myClass: "strike-through",
       darkClass: "dark",
       isOn: true,

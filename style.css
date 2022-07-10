@@ -1,43 +1,60 @@
 @charset 'UTF-8';
-html{
+
+html {
   width: 80%;
-  margin:auto;
+  margin: auto;
 
 }
 
-h2{
+h2 {
   background-color: cadetblue;
-  padding:0.2em 0.5em ;
+  padding: 0.2em 0.5em;
 }
-button{
+
+button {
   cursor: pointer;
   padding: 6px 12px;
   border-radius: 6px;
-  color:white;
+  color: white;
   border: 2px;
   background-color: darkcyan;
   transition: all .2s;
 }
-button:hover{
+
+button:hover {
   background-color: aquamarine;
 }
-button:active{
+
+button:active {
   background-color: darkcyan;
 }
-button:disabled{
-  opacity: 5;
+
+button:disabled {
+  opacity: .5;
+  background-color: darkgray;
   pointer-events: none;
 }
-input{
+
+input {
   padding: 6px 12px;
   border-radius: 6px;
-  border:2px solid darkcyan;
+  border: 2px solid darkcyan;
+  margin-right: 1em;
 }
-textarea{
+
+textarea {
   width: 10rem;
   height: 5rem;
 
 }
-select{
+
+select {
   border: 2px solid darkcyan;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+label {
+  display: inline-block;
+  margin: 0.5em;
 }
