@@ -11,6 +11,10 @@
 <body>
   <div id="app">
 
+    <h2>オブジェクトデータを表示する</h2>
+    <p>{{myTea}}</p>
+    <p>{{myTea.name}}</p>
+
     <h2>配列の値を表示する</h2>
     <p>{{myArray}}</p>
     <p>{{myArray[0]}}</p>
@@ -40,6 +44,7 @@
   new Vue({
     el: "#app",
     data: {
+      myTea: { name: 'ダージリン', price: 600 },
       myArray: ['ダージリン', 'アールグレイ', 'セイロン'],
       myPrice: "500",
       myName: "桃太郎",
