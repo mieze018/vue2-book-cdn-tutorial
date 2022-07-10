@@ -24,6 +24,16 @@
 
 <body>
   <div id="app">
+    <h2>[v-model]複数の選択を配列にする</h2>
+    <select v-model="mySelectColors" multiple>
+      <option selected disabled value="">Select a color</option>
+      <option>red</option>
+      <option>green</option>
+      <option>blue</option>
+      <option>orange</option>
+      <option>brown</option>
+    </select>
+    <p>選択した色：{{mySelectColors}}</p>
 
     <h2>[v-model]文字列が選択した色に変わる</h2>
     <select v-model="mySelectColor">
@@ -165,6 +175,7 @@
   new Vue({
     el: "#app",
     data: {
+      mySelectColors: [],
       mySelectColor: '',
       picked: 'red',
       myAgree: false,
