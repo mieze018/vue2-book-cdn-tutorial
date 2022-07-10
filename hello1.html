@@ -25,6 +25,9 @@
 <body>
   <div id="app">
 
+    <h2>[v-on]クリックしたら２回目は押せなくなる「いいね」ボタン</h2>
+    <button value="いいね" :disabled="isClicked" @click="clickOnce">いいね</button>
+
     <h2>[v-on]クリックしたら1増やす</h2>
     <p>{{count}}</p>
     <button @click="countUp">+ 1</button>
@@ -185,6 +188,7 @@
 
   // ハイライトを実行
   hljs.initHighlightingOnLoad();
+  const initClickOnce = () => alert('いいね')
 
   const teaList = [
     { name: "ダージリン", price: 600 },
@@ -194,6 +198,7 @@
   new Vue({
     el: "#app",
     data: {
+      isClicked: false,
       count: 0,
       mySelectColors: [],
       mySelectColor: '',
@@ -219,7 +224,8 @@
       myText: "Hello",
     },
     methods: {
-      countUp: function () { this.count++ }
+      countUp: function () { this.count++ },
+      clickOnce: function () { this.isClicked = true; initClickOnce() }
     }
   });
 </script>
