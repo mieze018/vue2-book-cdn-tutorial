@@ -20,12 +20,19 @@ function drawChart() {
   const chart = new google.visualization.PieChart(document.getElementById('pieChart'))
   chart.draw(data, options)
 }
+
 new Vue({
   el: "#app",
   data: {
+    dataArray: originalData
 
   },
   methods: {
-
+    addVote: function name(index) {
+      const votedItem = this.dataArray[index]
+      votedItem[1]++
+      this.dataArray.splice(index, 1, votedItem)
+      drawChart()
+    }
   }
 });

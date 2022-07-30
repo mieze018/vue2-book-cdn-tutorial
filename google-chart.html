@@ -26,6 +26,14 @@
 <body>
   <div id="app">
 
+    <h2>GoogleChartsの円グラフにボタンで投票できるようにする</h2>
+    <ul>
+      <li v-for="(item,c) in dataArray" v-if="c>0">
+        {{item[0]}} : {{item[1]}}
+        <button v-on:click="addVote(c)">投票</button>
+      </li>
+    </ul>
+
     <h2>GoogleChartsで静的な円グラフを表示させる</h2>
     <h3>好きなランチ投票</h3>
     <div id="pieChart" style="height:500px ;"></div>
