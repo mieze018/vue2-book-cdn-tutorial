@@ -47,6 +47,18 @@ new Vue({
     myText: "Hello",
   },
   methods: {
+    addList: function () {
+      this.myArray.push('[末尾に追加]');
+    },
+    addObj: function (index) {
+      this.myArray.splice(index, 0, '[追加]');
+    },
+    changeObj: function (index) {
+      this.myArray.splice(index, 1, '[変更]');
+    },
+    deleteObj: function (index) {
+      this.myArray.splice(index, 1);
+    },
     handleNice: function () { this.isShow = false },
     showAlert: function () { alert('Enterキーを押しました') },
     countUp: function (value = 1) { this.count += value },
