@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue.js sample</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+  <!-- google charts import -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <style>
+    .strike-through {
+      text-decoration: line-through;
+      color: lightgray;
+    }
+
+    .dark {
+      background-color: gray;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+    <h2>GoogleChartsの円グラフにボタンで投票できるようにする</h2>
+    <ul>
+      <li v-for="(item,c) in dataArray" v-if="c>0">
+        {{item[0]}} : {{item[1]}}
+        <button v-on:click="addVote(c)">投票</button>
+      </li>
+    </ul>
+
+    <h2>GoogleChartsで静的な円グラフを表示させる</h2>
+    <h3>好きなランチ投票</h3>
+    <div id="pieChart" style="height:500px ;"></div>
+
+</body>
+<script src="googleChart.js"></script>
+
+</html>
