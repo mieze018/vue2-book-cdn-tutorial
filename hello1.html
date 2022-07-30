@@ -8,7 +8,6 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
-
   <style>
     .strike-through {
       text-decoration: line-through;
@@ -24,6 +23,81 @@
 
 <body>
   <div id="app">
+
+    <h2>[v-for]ボタンをクリックしたら偶数だけを表示する</h2>
+    <ul>
+      <li v-for="item in myNumArray">{{item}}</li>
+    </ul><button @click="evenData">偶数だけにする</button>
+
+    <h2>[v-for][v-if]偶数だけを表示する</h2>
+    <ul>
+      <li v-for="item in myNumArray" v-if="item % 2==0">{{item}}</li>
+    </ul>
+
+    <h2>[v-for]ボタンをクリックしたらソートする</h2>
+    <ul>
+      <li v-for="item in myArray">{{item}}</li>
+    </ul>
+    <button @click="sortData(myArray)">ソート</button>
+
+    <h2>[v-for]ボタンでリストの追加・削除を行う</h2>
+    <ul>
+      <li v-for="item in myArray">{{item}}</li>
+    </ul>
+    <button v-on:click="addList">末尾に追加</button>
+    <button v-on:click="addObj(3)">4つ目に追加</button>
+    <button v-on:click="changeObj(0)">1つ目を変更</button>
+    <button v-on:click="deleteObj(1)">2つ目を削除</button>
+
+    <h2>[v-for]配列データをテーブルで表示する</h2>
+    <table>
+      <caption>注目されている言語ランキング</caption>
+      <thead>
+        <th v-for="header in langTableHeader">{{header}}</th>
+      </thead>
+      <tbody>
+        <tr v-for="line in langRanking">
+          <td v-for="item in line">{{item}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>[v-for]配列データを番号付きリストで表示する</h2>
+    <ul>
+      <li v-for="(tea,i) in myTeaList">{{i+1}}.{{tea.name}} ¥{{tea.price}}</li>
+    </ul>
+
+    <h2>[v-for]インデックスをリスト表示する</h2>
+    <ul>
+      <li v-for="n in 10">{{n}}*5={{n*5}}</li>
+    </ul>
+
+
+    <h2>[v-for]オブジェクト配列データをリスト表示する</h2>
+    <ul>
+      <li v-for="tea in myTeaList">{{tea.name}} ¥{{tea.price}}</li>
+    </ul>
+
+    <h2>[v-for]配列データをリストで表示する</h2>
+    <ul>
+      <li v-for="item in myArray">{{item}}</li>
+    </ul>
+
+    <h2>[v-if]クリックしたら消える「いいね！」ボタン</h2>
+    <button v-if="isShow" @click="handleNice">いいね！</button>
+
+    <h2>[v-else]trueとfalseで表示を切り替える</h2>
+    <label>
+      <input type="checkbox" v-model="myVisible" />表示する
+    </label>
+    <p v-if="myVisible">{{myVisible}}</p>
+    <p v-else>{{myVisible}}</p>
+
+    <h2>[v-if]trueのときだけ表示する</h2>
+    <label>
+      <input type="checkbox" v-model="myVisible" />表示する
+    </label>
+    <p v-if="myVisible">{{myVisible}}</p>
 
     <h2>[v-on.keycode.keycode]キーコンビネーション(Shift+Enter)でアラートを表示する</h2>
     <input @keyup.enter.shift="showAlert" v-model="myText" />
@@ -192,52 +266,6 @@
     <p>{{ myText }}</p>
   </div>
 </body>
-
-<script>
-
-  // ハイライトを実行
-  hljs.initHighlightingOnLoad();
-  const initClickOnce = () => alert('いいね')
-
-  const teaList = [
-    { name: "ダージリン", price: 600 },
-    { name: "アールグレイ", price: 500 },
-    { name: "セイロン", price: 500 },
-  ];
-  new Vue({
-    el: "#app",
-    data: {
-      isClicked: false,
-      count: 0,
-      mySelectColors: [],
-      mySelectColor: '',
-      picked: 'red',
-      myAgree: false,
-      myChecks: [],
-      myCheck: false,
-      myClass: "strike-through",
-      darkClass: "dark",
-      isOn: true,
-      myColor: "#E08000",
-      myURL: "https://www.ymori.com",
-      fileName: 'face1.png',
-      myTeaList: teaList,
-      myTea: { name: 'ダージリン', price: 600 },
-      myArray: ['ダージリン', 'アールグレイ', 'セイロン'],
-      myPrice: "500",
-      myName: "桃太郎",
-      myNumber: "12345",
-      myText: "Hello",
-      myBool: true,
-      myHtml: "<h1>Hello</h1>",
-      myText: "Hello",
-    },
-    methods: {
-      showAlert: function () { alert('Enterキーを押しました') },
-      countUp: function (value = 1) { this.count += value },
-      clickOnce: function () { this.isClicked = true; initClickOnce() }
-    }
-  });
-</script>
+<script src="hello.js"></script>
 
 </html>
