@@ -11,6 +11,7 @@ const teaList = [
 new Vue({
   el: "#app",
   data: {
+    myNumArray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     langTableHeader: ["プログラミング言語", 2018, 2013, 2008, 2003, 1998],
     langRanking: [
       ['Java', 1, 2, 1, 1, 16],

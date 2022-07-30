@@ -25,6 +25,11 @@
   <div id="app">
 
 
+    <h2>[v-for]偶数だけを表示する</h2>
+    <ul>
+      <li v-for="item in myNumArray" v-if="item % 2==0">{{item}}</li>
+    </ul>
+
     <h2>[v-for]ボタンをクリックしたらソートする</h2>
     <ul>
       <li v-for="item in myArray">{{item}}</li>
