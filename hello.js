@@ -48,6 +48,11 @@ new Vue({
     myText: "Hello",
   },
   methods: {
+    evenData: function () {
+      this.myNumArray = this.myNumArray.filter(function (num) {
+        return num % 2 === 0;
+      });
+    },
     sortData: function (listData) {
       return listData.sort((a, b) => a < b ? -1 : 1)
     },

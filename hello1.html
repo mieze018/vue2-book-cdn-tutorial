@@ -24,6 +24,10 @@
 <body>
   <div id="app">
 
+    <h2>[v-for]ボタンをクリックしたら偶数だけを表示する</h2>
+    <ul>
+      <li v-for="item in myNumArray">{{item}}</li>
+    </ul><button @click="evenData">偶数だけにする</button>
 
     <h2>[v-for][v-if]偶数だけを表示する</h2>
     <ul>
