@@ -24,6 +24,13 @@
 <body>
   <div id="app">
 
+
+    <h2>[v-for]ボタンをクリックしたらソートする</h2>
+    <ul>
+      <li v-for="item in myArray">{{item}}</li>
+    </ul>
+    <button @click="sortData(myArray)">ソート</button>
+
     <h2>[v-for]ボタンでリストの追加・削除を行う</h2>
     <ul>
       <li v-for="item in myArray">{{item}}</li>

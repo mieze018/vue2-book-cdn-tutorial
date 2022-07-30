@@ -47,6 +47,9 @@ new Vue({
     myText: "Hello",
   },
   methods: {
+    sortData: function (listData) {
+      return listData.sort((a, b) => a < b ? -1 : 1)
+    },
     addList: function () {
       this.myArray.push('[末尾に追加]');
     },
