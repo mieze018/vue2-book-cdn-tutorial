@@ -14,6 +14,13 @@
   <div id="app">
 
 
+    <h2>[computed]インクリメントサーチ</h2>
+    <input type="text" v-model="findWord" />
+    <ul>
+      <li v-for="item in foundItems">
+        <span>{{ item }}</span>
+    </ul>
+
     <h2>[computed]文字を入力したら残りの入力可能文字数を表示する</h2>
     <p>{{maxLength}}文字以内で入力してください</p>
     <textarea v-model="myText"></textarea>
@@ -21,6 +28,7 @@
       <span class="remain">{{ remainText }}</span>
       文字
     </p>
+
 
     <h2>[computed]単価と個数を入力したら税込の金額を計算する</h2>
     <input type="number" v-model.number="price" />円 ×
