@@ -12,7 +12,11 @@
 
 <body>
   <div id="app">
-
+    <h2>[computed]RGBスライダーで色を作成する</h2>
+    <p v-bind:style="{backgroundColor: generateColor}">{{generateColor}}</p>
+    <input type="range" v-model="color.R" min="0" max="255" />
+    <input type="range" v-model="color.G" min="0" max="255" />
+    <input type="range" v-model="color.B" min="0" max="255" />
 
     <h2>[computed]インクリメントサーチ</h2>
     <input type="text" v-model="findWord" />

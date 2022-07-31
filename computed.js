@@ -1,6 +1,11 @@
 new Vue({
   el: "#app",
   data: {
+    color: {
+      R: 255,
+      G: 150,
+      B: 100,
+    },
     price: 100,
     count: 1,
     myText: "こんにちは",
@@ -24,6 +29,10 @@ new Vue({
     ],
   },
   computed: {
+    //RGB
+    generateColor: function () {
+      return `rgb(${this.color.R},${this.color.G},${this.color.B})`;
+    },
     //this.findWordが変わったらその文字が含まれるアイテムを探す
     foundItems: function () {
       if (this.findWord)
