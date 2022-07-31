@@ -1,6 +1,8 @@
 new Vue({
   el: "#app",
   data: {
+    bannedWord: "Decepticon",
+    inputText: "Autobot",
     color: {
       R: 255,
       G: 150,
@@ -27,6 +29,16 @@ new Vue({
       'AstroTrain',
       'BlitzWing',
     ],
+  },
+  watch: {
+    //入力された文字入力を監視して、禁止文字が入力されたらアラートを表示する
+    inputText: function (val) {
+      if (val.includes(this.bannedWord)) {
+        alert("禁止文字が入力されました");
+        //入力文字列から禁止文字列を削除する
+        this.inputText = this.inputText.replace(this.bannedWord, "");
+      }
+    }
   },
   computed: {
     //RGB
