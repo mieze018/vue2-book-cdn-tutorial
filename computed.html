@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue.js sample</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+  <!-- import tweenMax -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+
+<body>
+  <div id="app">
+    <h2>[watch]アニメーションしながら値が増えるinput</h2>
+    <p>値は{{animatedNumber}}です</p>
+    <input type="number" v-model.number="animatedNumber" />
+
+    <h2>[watch]残り秒数が0になったらアラートを出す</h2>
+    <p>残り{{restSec}}秒</p>
+    <button v-on:click="startTimer">Start</button>
+
+    <h2>[watch]文字入力を監視して、禁止文字が入力されたらアラートを表示する</h2>
+    <p>禁止文字：「{{bannedWord}}」</p>
+    <input type="text" v-model="inputText" />
+
+    <h2>[computed]RGBスライダーで色を作成する</h2>
+    <p v-bind:style="{backgroundColor: generateColor}">{{generateColor}}</p>
+    <input type="range" v-model="color.R" min="0" max="255" />
+    <input type="range" v-model="color.G" min="0" max="255" />
+    <input type="range" v-model="color.B" min="0" max="255" />
+
+    <h2>[computed]インクリメントサーチ</h2>
+    <input type="text" v-model="findWord" />
+    <ul>
+      <li v-for="item in foundItems">
+        <span>{{ item }}</span>
+    </ul>
+
+    <h2>[computed]文字を入力したら残りの入力可能文字数を表示する</h2>
+    <p>{{maxLength}}文字以内で入力してください</p>
+    <textarea v-model="myText"></textarea>
+    <p v-bind:style="{color:remainColor}">残り
+      <span class="remain">{{ remainText }}</span>
+      文字
+    </p>
+
+
+    <h2>[computed]単価と個数を入力したら税込の金額を計算する</h2>
+    <input type="number" v-model.number="price" />円 ×
+    <input type="number" v-model.number="count" />個 =
+    <p>合計{{sum}}</p>
+    <p>税込の金額 {{taxIncludedSum}}円</p>
+
+    <h2>金額を入力したら税込の金額を計算する</h2>
+    <input type="number" v-model.number="price" />円
+    <p>税込の金額 {{taxIncluded}}円</p>
+
+  </div>
+
+</body>
+<script src="computed.js"></script>
+
+</html>
