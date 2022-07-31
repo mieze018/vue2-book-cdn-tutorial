@@ -12,6 +12,15 @@
 
 <body>
   <div id="app">
+
+    <h2>残り秒数が0になったらアラートを出す</h2>
+    <p>残り{{restSec}}秒</p>
+    <button v-on:click="startTimer">Start</button>
+
+    <h2>[watch]文字入力を監視して、禁止文字が入力されたらアラートを表示する</h2>
+    <p>禁止文字：「{{bannedWord}}」</p>
+    <input type="text" v-model="inputText" />
+
     <h2>[computed]RGBスライダーで色を作成する</h2>
     <p v-bind:style="{backgroundColor: generateColor}">{{generateColor}}</p>
     <input type="range" v-model="color.R" min="0" max="255" />

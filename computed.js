@@ -1,6 +1,8 @@
 new Vue({
   el: "#app",
   data: {
+    restSec: 5,
+    timerObj: null,
     bannedWord: "Decepticon",
     inputText: "Autobot",
     color: {
@@ -30,7 +32,24 @@ new Vue({
       'BlitzWing',
     ],
   },
+  methods: {
+    startTimer: function () {
+      this.restSec = 5;
+      this.timerObj = setInterval(() => {
+        //1秒ごとに1減らす
+        this.restSec--;
+      }, 1000);
+    }
+  },
   watch: {
+    //残り秒数を監視する
+    restSec: function () {
+      if (this.restSec <= 0) {
+        alert("終了");
+        clearInterval(this.timerObj);
+      }
+    },
+
     //入力された文字入力を監視して、禁止文字が入力されたらアラートを表示する
     inputText: function (val) {
       if (val.includes(this.bannedWord)) {
