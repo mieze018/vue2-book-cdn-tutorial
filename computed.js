@@ -1,6 +1,8 @@
 new Vue({
   el: "#app",
   data: {
+    myNumber: 0,
+    tweenedNumber: 0,
     restSec: 5,
     timerObj: null,
     bannedWord: "Decepticon",
@@ -32,6 +34,7 @@ new Vue({
       'BlitzWing',
     ],
   },
+
   methods: {
     startTimer: function () {
       this.restSec = 5;
@@ -41,7 +44,14 @@ new Vue({
       }, 1000);
     }
   },
+
   watch: {
+    //myNumberを監視して変更があったら実行
+    myNumber: function () {
+      TweenMax.to(this.$data, 1, {
+        tweenedNumber: this.myNumber
+      });
+    },
     //残り秒数を監視する
     restSec: function () {
       if (this.restSec <= 0) {
@@ -60,6 +70,9 @@ new Vue({
     }
   },
   computed: {
+    animatedNumber: function () {
+      return this.tweenedNumber.toFixed(0)
+    },
     //RGB
     generateColor: function () {
       return `rgb(${this.color.R},${this.color.G},${this.color.B})`;
