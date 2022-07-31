@@ -12,7 +12,9 @@
 
 <body>
   <div id="app">
-
+    <h2>金額を入力したら税込の金額を計算する</h2>
+    <input type="number" v-model.number="price" />円
+    <p>税込の金額 {{taxIncluded}}円</p>
   </div>
 
 </body>
